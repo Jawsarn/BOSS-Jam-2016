@@ -28,9 +28,10 @@ GameObject:
   - 4: {fileID: 467248}
   - 114: {fileID: 11435394}
   - 114: {fileID: 11402844}
+  - 114: {fileID: 11489612}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,6 +146,18 @@ MonoBehaviour:
     i15: 50
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11489612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d958c2dba906a4b4fac709fc14f65e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfPlayers: 0
 --- !u!136 &13622282
 CapsuleCollider:
   m_ObjectHideFlags: 1
