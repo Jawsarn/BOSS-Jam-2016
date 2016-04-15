@@ -29,6 +29,7 @@ GameObject:
   - 114: {fileID: 11435394}
   - 114: {fileID: 11402844}
   - 114: {fileID: 11489612}
+  - 114: {fileID: 11452964}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -146,6 +147,21 @@ MonoBehaviour:
     i15: 50
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11452964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d6a9a890fc0a44a9a3a389a9141c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classType: 0
+  BigShipPrefab: {fileID: 104602, guid: a70419f25ea9b844a999886e4b455435, type: 2}
+  TurretPrefab: {fileID: 199266, guid: 44ba84396347c5042b6f833338ee1399, type: 2}
+  ChaserPrefab: {fileID: 156192, guid: cb640208303c14b45aebba84f974451f, type: 2}
 --- !u!114 &11489612
 MonoBehaviour:
   m_ObjectHideFlags: 1
