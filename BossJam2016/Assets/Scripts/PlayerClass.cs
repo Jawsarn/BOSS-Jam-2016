@@ -33,10 +33,26 @@ public class PlayerClass : MonoBehaviour {
 
             // turret
             case 2:
+                // We assume there is a ship now..
+                GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("BigShip");
+
+                if (gameobjects.GetLength(0) == 1)
+                {
+                    GameObject bigship = gameobjects[0];
+                    GameObject turret = (GameObject)Instantiate(TurretPrefab, Vector3.zero, Quaternion.Euler(Vector3.zero));
+                    turret.transform.parent = transform;
+
+                    transform.parent = bigship.transform;
+                }
+
+
                 break;
 
             //chaser
             case 3:
+                GameObject chaser = (GameObject)Instantiate(ChaserPrefab, Vector3.zero, Quaternion.Euler(Vector3.zero));
+                chaser.transform.parent = transform;
+
                 break;
             default:
                 break;

@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 public class GameStateManager : MonoBehaviour {
 
     bool startedGame = false;
+    float timer = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +26,13 @@ public class GameStateManager : MonoBehaviour {
             int numObjects = gameobjects.GetLength(0);
             if (numObjects > 0)
             {
-                startedGame = true;
-                StartGame();
+                timer += Time.deltaTime;
+
+                if (timer > 5.0f)
+                {
+                    startedGame = true;
+                    StartGame();
+                }
             }
         }
     }
