@@ -4,12 +4,15 @@ using UnityEngine.Networking;
 
 public class GameStateManager : MonoBehaviour {
 
+    public static float endXhalfDistance = 50.0f;
+
     public GameObject powerUpSpawner;
     bool startedGame = false;
     float timer = 0;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 	
 	}
 	

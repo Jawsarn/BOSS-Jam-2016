@@ -10,15 +10,15 @@ public class PowerUpSpawner : MonoBehaviour {
     public float spawnRate = 1.0f;
     float spawnTimer = 0.0f;
     public float endXhalfDistance = 50.0f;
-    public float startMaxOffsetDistance = 5.0f;
+    public float startMaxOffsetDistance = 20.0f;
     public float spawnDistanceZFromShip = 100.0f;
     public float minForce = 30.0f;
     public float maxForce = 100.0f;
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+        endXhalfDistance = GameStateManager.endXhalfDistance;
+    }
 	
 	// Update is called once per frame
 	void Update () {
