@@ -12,6 +12,14 @@ public class PlayerController : NetworkBehaviour {
     float restoreSpeed = 0.3f;
     float turnSpeed = 1.0f;
 
+    float prevVal = 0;
+
+    bool pressMainShoot = false;
+    bool prevPressMainShoot = false;
+    bool pressSecondShoot = false;
+    bool prevPressSecondShoot = false;
+
+
     // Use this for initialization
     void Start () {
 	}
@@ -36,7 +44,20 @@ public class PlayerController : NetworkBehaviour {
             }
 
 
-            CmdUpdateHorizontalInput(axisVal);
+            // Check if attempt shooting
+            bool curMainWepPress = Input.GetKey("joystick button 5");
+            bool curSecondWepPress = Input.GetKey("joystick button 0");
+
+
+            if (prevPressSecondShoot != curSecondWepPress ||
+                prevPressMainShoot != curMainWepPress ||
+                axisVal != prevVal)
+            {
+                CmdUpdateInput(curMainWepPress, curSecondWepPress, axisVal);
+            }
+            prevPressMainShoot = curMainWepPress;
+            prevPressSecondShoot = curSecondWepPress;
+            prevVal = axisVal;
         }
 
         // If server, update by last update
@@ -103,13 +124,29 @@ public class PlayerController : NetworkBehaviour {
                 default:
                     break;
             }
+
+            //GunController gunControl = GetComponent<GunController>();
+
+            //if (pressMainShoot)
+            //{
+            //    gunControl.FireMainGuns();
+            //}
+            //if (pressSecondShoot)
+            //{
+            //    gunControl.FireSecondGuns();
+            //}
+
         }
 	}
 
 
     [Command]
-    void CmdUpdateHorizontalInput(float value)
+    void CmdUpdateInput(bool valueMain, bool valueSecond, float valueAxis)
     {
-        horizontAxis = value;
+        pressMainShoot = valueMain;
+
+        pressSecondShoot = valueSecond;
+
+        horizontAxis = valueAxis;
     }
 }

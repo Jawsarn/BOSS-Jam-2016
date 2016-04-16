@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classType: 0
-  BigShipPrefab: {fileID: 104602, guid: a70419f25ea9b844a999886e4b455435, type: 2}
+  BigShipPrefab: {fileID: 160500, guid: 1efffc02f2dad6042b710b3f32405113, type: 2}
   TurretPrefab: {fileID: 199266, guid: 44ba84396347c5042b6f833338ee1399, type: 2}
   ChaserPrefab: {fileID: 187406, guid: 3869c7d6d7c76d648a7583c1fdfc46d7, type: 2}
 --- !u!114 &11489612

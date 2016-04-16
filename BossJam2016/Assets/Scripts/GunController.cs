@@ -50,7 +50,7 @@ public class GunController : NetworkBehaviour {
             mainGunsTimer = 0.0f;
 
             // Send to server to create projectiles
-            CmdCreateProjectileMain();
+            CreateProjectileMain();
         }
     }
 
@@ -61,12 +61,12 @@ public class GunController : NetworkBehaviour {
             secondGunsTimer = 0.0f;
 
             // Send to server to create projectiles
-            CmdCreateProjectileSecond();
+            CreateProjectileSecond();
         }
     }
 
-    [Command]
-    void CmdCreateProjectileMain()
+
+    void CreateProjectileMain()
     {
         int classType = GetComponent<PlayerClass>().classType;
 
@@ -95,11 +95,12 @@ public class GunController : NetworkBehaviour {
             }
 
             NetworkServer.Spawn(obj);
+
+            Debug.Log("SHOOTIN!");
         }
     }
 
-    [Command]
-    void CmdCreateProjectileSecond()
+    void CreateProjectileSecond()
     {
         int classType = GetComponent<PlayerClass>().classType;
 
