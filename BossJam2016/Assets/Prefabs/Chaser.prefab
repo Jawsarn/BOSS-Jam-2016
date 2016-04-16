@@ -238,7 +238,7 @@ GameObject:
   - 114: {fileID: 11423092}
   m_Layer: 0
   m_Name: chaser
-  m_TagString: Untagged
+  m_TagString: Chaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -434,7 +434,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161732}
-  m_LocalRotation: {x: -0.2601104, y: 0.6575277, z: -0.65752757, w: -0.26011035}
+  m_LocalRotation: {x: -0.26011044, y: 0.65752774, z: -0.6575276, w: -0.26011038}
   m_LocalPosition: {x: -0.013, y: 0, z: -0.002}
   m_LocalScale: {x: 0.9999999, y: 1, z: 1}
   m_Children:

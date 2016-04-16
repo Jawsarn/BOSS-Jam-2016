@@ -31,6 +31,8 @@ GameObject:
   - 114: {fileID: 11489612}
   - 114: {fileID: 11452964}
   - 54: {fileID: 5449896}
+  - 114: {fileID: 11495312}
+  - 114: {fileID: 11497516}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -190,6 +192,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numOfPlayers: 0
+--- !u!114 &11495312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302d954a8497a0e46ace7ce8a2510d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainShipYOffset: 5
+  mainShipZOffset: -10
+  mainShipXRotation: 30
+  mainShipYRotation: 0
+  mainShipZRotation: 0
+  turretYOffset: 5
+  turretZOffset: 10
+  turretXRotation: 30
+  turretYRotation: 0
+  turretZRotation: 180
+  chaserYOffset: 5
+  chaserZOffset: -10
+  chaserXRotation: 30
+  chaserYRotation: 0
+  chaserZRotation: 0
+--- !u!114 &11497516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c59a7c94fb6a2479d1c6e417a46daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  startingVelocityZ: 0.5
 --- !u!136 &13622282
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -68,6 +68,7 @@ public class PlayerClass : NetworkBehaviour {
             default:
                 break;
         }
+
         // Give client an ID
         RpcSetClassID(classType);
     }
@@ -120,6 +121,10 @@ public class PlayerClass : NetworkBehaviour {
                 break;
             default:
                 break;
-        }       
+        }
+
+        // Create camera
+        CameraCreator creator = GetComponent<CameraCreator>();
+        creator.SetUpCamera();
     }
 }

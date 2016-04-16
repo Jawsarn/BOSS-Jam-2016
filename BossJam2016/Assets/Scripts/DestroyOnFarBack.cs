@@ -17,6 +17,7 @@ public class DestroyOnFarBack : MonoBehaviour {
 
     void CheckIfDestroy()
     {
+        
         if (transform.position.z < destroyNegativeZValue)
         {
             Destroy(gameObject);

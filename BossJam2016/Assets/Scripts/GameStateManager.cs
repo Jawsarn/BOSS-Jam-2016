@@ -48,8 +48,13 @@ public class GameStateManager : MonoBehaviour {
             PlayerClass playerClass = player.GetComponent<PlayerClass>();
             playerClass.classType = classType;
             playerClass.InitializeClass();
+
+
+
+
             classType++;
         }
+
 
         // Start gameobjects
         PowerUpSpawner powerSpawner = powerUpSpawner.GetComponent<PowerUpSpawner>();
