@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 3
-  m_SendInterval: 0.1
+  m_SendInterval: 0.033333335
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
@@ -203,21 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302d954a8497a0e46ace7ce8a2510d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainShipYOffset: 5
-  mainShipZOffset: -10
-  mainShipXRotation: 30
-  mainShipYRotation: 0
-  mainShipZRotation: 0
-  turretYOffset: 5
-  turretZOffset: 10
-  turretXRotation: 30
-  turretYRotation: 0
-  turretZRotation: 180
-  chaserYOffset: 5
-  chaserZOffset: -10
-  chaserXRotation: 30
-  chaserYRotation: 0
-  chaserZRotation: 0
 --- !u!114 &11497516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,9 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c59a7c94fb6a2479d1c6e417a46daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  startingVelocityZ: 0.5
 --- !u!136 &13622282
 CapsuleCollider:
   m_ObjectHideFlags: 1
