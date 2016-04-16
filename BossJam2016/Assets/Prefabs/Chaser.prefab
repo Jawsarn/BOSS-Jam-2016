@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11465130}
   m_Layer: 0
   m_Name: Chaser
-  m_TagString: Untagged
+  m_TagString: Chaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,22 +42,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
+    i0: 203
+    i1: 100
+    i2: 2
+    i3: 8
+    i4: 48
+    i5: 60
+    i6: 20
+    i7: 180
+    i8: 90
+    i9: 235
+    i10: 186
+    i11: 132
+    i12: 249
+    i13: 116
+    i14: 69
+    i15: 31
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000

@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11443930}
   m_Layer: 0
   m_Name: BigShip
-  m_TagString: BigShip
+  m_TagString: Bigship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,22 +118,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
+    i0: 167
+    i1: 4
+    i2: 25
+    i3: 242
+    i4: 94
+    i5: 169
+    i6: 184
+    i7: 68
+    i8: 169
+    i9: 153
+    i10: 136
+    i11: 110
+    i12: 75
+    i13: 69
+    i14: 84
+    i15: 53
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000

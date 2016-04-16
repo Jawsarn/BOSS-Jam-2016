@@ -29,7 +29,7 @@ GameObject:
   - 114: {fileID: 11434042}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,22 +106,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
+    i0: 68
+    i1: 186
+    i2: 132
+    i3: 57
+    i4: 99
+    i5: 71
+    i6: 197
+    i7: 4
+    i8: 43
+    i9: 111
+    i10: 131
+    i11: 51
+    i12: 56
+    i13: 238
+    i14: 19
+    i15: 153
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!136 &13629760
