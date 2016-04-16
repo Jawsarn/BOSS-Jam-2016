@@ -430,6 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentGunType: 0
+  MainGun: 1
 --- !u!114 &11443930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -474,6 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentGunType: 0
+  MainGun: 1
 --- !u!135 &13524102
 SphereCollider:
   m_ObjectHideFlags: 1

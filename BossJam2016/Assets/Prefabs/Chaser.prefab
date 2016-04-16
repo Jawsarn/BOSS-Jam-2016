@@ -237,7 +237,7 @@ GameObject:
   - 95: {fileID: 9524782}
   - 114: {fileID: 11423092}
   m_Layer: 0
-  m_Name: chaser
+  m_Name: Chaser
   m_TagString: Chaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

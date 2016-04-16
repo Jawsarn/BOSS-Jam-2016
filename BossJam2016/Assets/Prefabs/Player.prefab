@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classType: 0
   BigShipPrefab: {fileID: 104602, guid: a70419f25ea9b844a999886e4b455435, type: 2}
-  TurretPrefab: {fileID: 199266, guid: 44ba84396347c5042b6f833338ee1399, type: 2}
+  TurretPrefab: {fileID: 120124, guid: fa74560405b1a6c4b97c76d8c08b384c, type: 2}
   ChaserPrefab: {fileID: 187406, guid: 3869c7d6d7c76d648a7583c1fdfc46d7, type: 2}
 --- !u!114 &11489612
 MonoBehaviour:
@@ -203,21 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302d954a8497a0e46ace7ce8a2510d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainShipYOffset: 5
-  mainShipZOffset: -10
-  mainShipXRotation: 30
-  mainShipYRotation: 0
-  mainShipZRotation: 0
-  turretYOffset: 5
-  turretZOffset: 10
-  turretXRotation: 30
-  turretYRotation: 0
-  turretZRotation: 180
-  chaserYOffset: 5
-  chaserZOffset: -10
-  chaserXRotation: 30
-  chaserYRotation: 0
-  chaserZRotation: 0
 --- !u!114 &11497516
 MonoBehaviour:
   m_ObjectHideFlags: 1

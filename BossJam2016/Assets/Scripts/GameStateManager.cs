@@ -4,12 +4,19 @@ using UnityEngine.Networking;
 
 public class GameStateManager : MonoBehaviour {
 
+    public const int MAX_ENEMY_SHIPS = 10;
+    public static int nrOfEnemyShips = 0;
+
     public static float endXhalfDistance = 50.0f;
 
+    public static float startZ = -250.0f;
+    public static float endZ = 500.0f;
+
     public GameObject powerUpSpawner;
+    public GameObject enemySpawner;
+
     bool startedGame = false;
     float timer = 0;
-
 
     // Use this for initialization
     void Start () {
@@ -52,16 +59,14 @@ public class GameStateManager : MonoBehaviour {
             playerClass.classType = classType;
             playerClass.InitializeClass();
 
-
-
-
             classType++;
         }
-
 
         // Start gameobjects
         PowerUpSpawner powerSpawner = powerUpSpawner.GetComponent<PowerUpSpawner>();
         powerSpawner.Startup();
 
+        EnemySpawner enemies = enemySpawner.GetComponent<EnemySpawner>();
+        enemies.Startup();
     }
 }
