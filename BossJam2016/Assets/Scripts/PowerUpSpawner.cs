@@ -8,9 +8,9 @@ public class PowerUpSpawner : MonoBehaviour {
     GameObject bigShip;
     public float spawnRate = 5.0f;
     float spawnTimer = 0.0f;
-    public float spawnXhalfDistance = 5.0f;
+    public float endXhalfDistance = 50.0f;
+    public float startMaxOffsetDistance = 5.0f;
     public float spawnDistanceYFromShip = 100.0f;
-    public float maxAngular = 30.0f;
     public float minForce = 30.0f;
     public float maxForce = 100.0f;
 
@@ -32,14 +32,18 @@ public class PowerUpSpawner : MonoBehaviour {
             spawnTimer -= spawnRate;
 
             // Spawn astroid
-            var xPos = Random.Range(-spawnXhalfDistance, spawnXhalfDistance);
-            var angle = Random.Range(-maxAngular, maxAngular);
+            var xPosEnd = Random.Range(-endXhalfDistance, endXhalfDistance);
+            var xPosStart = Random.Range(-endXhalfDistance - startMaxOffsetDistance, endXhalfDistance + startMaxOffsetDistance);
+            xPosStart = Mathf.Max(xPosStart, -endXhalfDistance);
+            xPosStart = Mathf.Min(xPosStart, endXhalfDistance);
+
             var force = Random.RandomRange(minForce, maxForce);
 
 
-            GameObject newPowerUp = (GameObject)Instantiate(PowerUpPrefab, new Vector3(xPos, 0.0f, 0.0f), Quaternion.Euler(Vector3.zero));
+            GameObject newPowerUp = (GameObject)Instantiate(PowerUpPrefab, new Vector3(xPosStart, 0.0f, 0.0f), Quaternion.Euler(Vector3.zero));
 
-            Vector3 direction = new Vector3(0.0f, angle, 0.0f);
+            Vector3 direction = new Vector3(xPosEnd, 0, 0) - new Vector3(xPosStart, 0, 0);
+
 
             //Add force here
 

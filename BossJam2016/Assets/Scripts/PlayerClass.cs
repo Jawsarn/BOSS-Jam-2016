@@ -37,7 +37,7 @@ public class PlayerClass : NetworkBehaviour {
             // turret
             case 2:
                 // We assume there is a ship now..
-                GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("BigShip");
+                GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("Bigship");
 
                 if (gameobjects.GetLength(0) == 1)
                 {
@@ -48,6 +48,10 @@ public class PlayerClass : NetworkBehaviour {
                     transform.parent = bigship.transform;
 
                     NetworkServer.Spawn(turret);
+                }
+                else
+                {
+                    Debug.Log("NoShip");
                 }
 
 
@@ -77,7 +81,7 @@ public class PlayerClass : NetworkBehaviour {
         {
             // mainship
             case 1:
-                GameObject[] ships = GameObject.FindGameObjectsWithTag("BigShip");
+                GameObject[] ships = GameObject.FindGameObjectsWithTag("Bigship");
                 if (ships.GetLength(0) > 0)
                 {
                     ships[0].transform.parent = transform;
@@ -88,7 +92,7 @@ public class PlayerClass : NetworkBehaviour {
             // turret
             case 2:
                 // We assume there is a ship now..
-                GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("BigShip");
+                GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("Bigship");
 
                 if (gameobjects.GetLength(0) == 1)
                 {
@@ -116,8 +120,6 @@ public class PlayerClass : NetworkBehaviour {
                 break;
             default:
                 break;
-        }
-        PlayerManager playerMan = GetComponent<PlayerManager>();
-        
+        }       
     }
 }
