@@ -7,6 +7,7 @@ public class Health : NetworkBehaviour {
     [SyncVar] public int currentHealth = 100;
     public AudioSource damageSound;
     bool takeDamageSound = false;
+    public bool destroyable = true;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +29,12 @@ public class Health : NetworkBehaviour {
         currentHealth -= amount;
         if (currentHealth < 0)
         {
-            Destroy(gameObject);
+            // other stuff
+
+            if (destroyable)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
