@@ -11,6 +11,7 @@ GameObject:
   - 54: {fileID: 5483530}
   - 114: {fileID: 11424110}
   - 114: {fileID: 11432528}
+  - 114: {fileID: 11449676}
   m_Layer: 0
   m_Name: PowerUpContainer
   m_TagString: Untagged
@@ -161,6 +162,18 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &11449676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4c3e6872c79dc41bc6121d578b3204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyNegativeZValue: -100
 --- !u!135 &13549802
 SphereCollider:
   m_ObjectHideFlags: 1

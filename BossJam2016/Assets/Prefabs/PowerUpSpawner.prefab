@@ -40,10 +40,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerUpPrefab: {fileID: 0}
-  spawnRate: 5
+  spawnRate: 1
   endXhalfDistance: 50
   startMaxOffsetDistance: 5
-  spawnDistanceZFromShip: 300
+  spawnDistanceZFromShip: 100
   minForce: 30
   maxForce: 100
 --- !u!1001 &100100000
