@@ -4,13 +4,14 @@ using UnityEngine.Networking;
 
 public class PowerUpSpawner : MonoBehaviour {
 
+    bool started = false;
     public GameObject PowerUpPrefab;
     GameObject bigShip;
-    public float spawnRate = 5.0f;
+    public float spawnRate = 1.0f;
     float spawnTimer = 0.0f;
     public float endXhalfDistance = 50.0f;
     public float startMaxOffsetDistance = 5.0f;
-    public float spawnDistanceYFromShip = 100.0f;
+    public float spawnDistanceZFromShip = 100.0f;
     public float minForce = 30.0f;
     public float maxForce = 100.0f;
 
@@ -21,7 +22,7 @@ public class PowerUpSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!NetworkServer.active)
+        if (!NetworkServer.active || !started)
         {
             return;
         }
@@ -37,13 +38,12 @@ public class PowerUpSpawner : MonoBehaviour {
             xPosStart = Mathf.Max(xPosStart, -endXhalfDistance);
             xPosStart = Mathf.Min(xPosStart, endXhalfDistance);
 
-            var force = Random.RandomRange(minForce, maxForce);
-
-
-            GameObject newPowerUp = (GameObject)Instantiate(PowerUpPrefab, new Vector3(xPosStart, 0.0f, 0.0f), Quaternion.Euler(Vector3.zero));
+            var force = Random.Range(minForce, maxForce);
 
             var shipZPos = bigShip.transform.position.z;
-            Vector3 direction = new Vector3(xPosEnd, 0, shipZPos) - new Vector3(xPosStart, 0, shipZPos + spawnDistanceYFromShip);
+            GameObject newPowerUp = (GameObject)Instantiate(PowerUpPrefab, new Vector3(xPosStart, 0.0f, shipZPos + spawnDistanceZFromShip), Quaternion.Euler(Vector3.zero));
+
+            Vector3 direction = new Vector3(xPosEnd, 0, shipZPos) - new Vector3(xPosStart, 0, shipZPos + spawnDistanceZFromShip);
             direction.Normalize();
 
             //Add force here
@@ -54,12 +54,13 @@ public class PowerUpSpawner : MonoBehaviour {
         }
     }
 
-    void Startup()
+    public void Startup()
     {
-        GameObject[] obj = GameObject.FindGameObjectsWithTag("BigShip");
+        GameObject[] obj = GameObject.FindGameObjectsWithTag("Bigship");
         if (obj.GetLength(0) > 0)
         {
             bigShip = obj[0];
+            started = true;
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 
 public class GameStateManager : MonoBehaviour {
 
+    public GameObject powerUpSpawner;
     bool startedGame = false;
     float timer = 0;
 
@@ -49,5 +50,10 @@ public class GameStateManager : MonoBehaviour {
             playerClass.InitializeClass();
             classType++;
         }
+
+        // Start gameobjects
+        PowerUpSpawner powerSpawner = powerUpSpawner.GetComponent<PowerUpSpawner>();
+        powerSpawner.Startup();
+
     }
 }

@@ -43,7 +43,7 @@ MonoBehaviour:
   spawnRate: 5
   endXhalfDistance: 50
   startMaxOffsetDistance: 5
-  spawnDistanceYFromShip: 100
+  spawnDistanceZFromShip: 300
   minForce: 30
   maxForce: 100
 --- !u!1001 &100100000
