@@ -64,6 +64,8 @@ public class PlayerClass : NetworkBehaviour {
 
                 NetworkServer.Spawn(chaser);
 
+                transform.position = new Vector3(0, 0, -100);
+
                 break;
             default:
                 break;
