@@ -42,10 +42,13 @@ public class PowerUpSpawner : MonoBehaviour {
 
             GameObject newPowerUp = (GameObject)Instantiate(PowerUpPrefab, new Vector3(xPosStart, 0.0f, 0.0f), Quaternion.Euler(Vector3.zero));
 
-            Vector3 direction = new Vector3(xPosEnd, 0, 0) - new Vector3(xPosStart, 0, 0);
-
+            var shipZPos = bigShip.transform.position.z;
+            Vector3 direction = new Vector3(xPosEnd, 0, shipZPos) - new Vector3(xPosStart, 0, shipZPos + spawnDistanceYFromShip);
+            direction.Normalize();
 
             //Add force here
+            Rigidbody rigBody =newPowerUp.GetComponent<Rigidbody>();
+            rigBody.AddForce(direction * force);
 
             NetworkServer.Spawn(newPowerUp);
         }
