@@ -3,6 +3,7 @@ using System.Collections;
 
 public class DestroyOnFarBack : MonoBehaviour {
 
+    public bool inverse = false;
     public float destroyNegativeZValue = -100;
 
 	// Use this for initialization
@@ -17,10 +18,19 @@ public class DestroyOnFarBack : MonoBehaviour {
 
     void CheckIfDestroy()
     {
-        
-        if (transform.position.z < destroyNegativeZValue)
+        if (inverse)
         {
-            Destroy(gameObject);
+            if (transform.position.z > destroyNegativeZValue)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            if (transform.position.z < destroyNegativeZValue)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

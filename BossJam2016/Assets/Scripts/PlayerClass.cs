@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
-
+using UnityEngine.UI;
 
 public class PlayerClass : NetworkBehaviour {
 
@@ -31,6 +31,7 @@ public class PlayerClass : NetworkBehaviour {
                 ship.transform.parent = transform;
 
                 NetworkServer.Spawn(ship);
+                Debug.Log("Spawnship");
 
                 break;
 
@@ -64,7 +65,7 @@ public class PlayerClass : NetworkBehaviour {
 
                 NetworkServer.Spawn(chaser);
 
-                transform.position = new Vector3(0, 0, -100);
+                transform.position = new Vector3(0, 5, -100);
 
                 break;
             default:
@@ -128,5 +129,60 @@ public class PlayerClass : NetworkBehaviour {
         // Create camera
         CameraCreator creator = GetComponent<CameraCreator>();
         creator.SetUpCamera();
+
+        // here
+        if(isLocalPlayer)
+        {
+            GameObject health = GameObject.FindGameObjectWithTag("Health");
+            if (classType == 1 || classType == 2)  // defender
+            {
+                GameObject ship = GameObject.FindGameObjectWithTag("Bigship");
+                if(health == null)
+                {
+                    Debug.LogError("health is null!!!");
+                }
+                if(ship.GetComponent<Health>() == null)
+                {
+                    Debug.LogError("health ui componentis null!!!");
+                }
+                if(health.GetComponent<Image>() == null )
+                {
+                    Debug.LogError("health comp null!!!");
+                }
+                   ship.GetComponent<Health>().healthUI = health.transform.GetChild(0).GetComponent<Image>(); // 
+
+
+            }
+
+            else if(classType == 3) // chaser
+            {
+
+            }
+
+
+        }
+    }
+
+    public void UpgradeLasers()
+    {
+        //bigship
+        if (classType == 1)
+        {
+            GunController gunController = GameObject.FindGameObjectWithTag("Bigship").GetComponent<GunController>();
+           
+            GunController turretGunController = GameObject.FindGameObjectWithTag("Turret").GetComponent<GunController>();
+      
+
+            gunController.UpgradeGuns();
+            turretGunController.UpgradeGuns();
+
+        }
+        //chaser
+        else if (classType == 3)
+        {
+            GunController gunController = GameObject.FindGameObjectWithTag("Turret").GetComponent<GunController>();
+            gunController.UpgradeGuns();
+            print("upgrading classType3!!!!!!!");
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
+
 public class PlayerController : NetworkBehaviour {
 
     float horizontAxis = 0;
@@ -19,10 +20,20 @@ public class PlayerController : NetworkBehaviour {
     bool pressSecondShoot = false;
     bool prevPressSecondShoot = false;
 
-
+    //public SmoothFollow smoothFollowScript;
+    
     // Use this for initialization
     void Start () {
-	}
+        if(isLocalPlayer)
+        {
+            int type = GetComponent<PlayerClass>().classType;
+            if (type != 2)
+            {
+                SmoothFollow scriptet = Camera.main.gameObject.AddComponent<SmoothFollow>();
+                scriptet.SetTarget(transform);
+            }
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -45,6 +56,8 @@ public class PlayerController : NetworkBehaviour {
 
 
             // Check if attempt shooting
+
+
             bool curMainWepPress = Input.GetKey("joystick button 5");
             bool curSecondWepPress = Input.GetKey("joystick button 0");
 
@@ -64,6 +77,7 @@ public class PlayerController : NetworkBehaviour {
         if (NetworkServer.active)
         {
             int type = GetComponent<PlayerClass>().classType;
+            GunController gunControl;
 
             switch (type)
             {
@@ -84,6 +98,11 @@ public class PlayerController : NetworkBehaviour {
                     rotationValue = Mathf.Max(rotationValue, -maxRotationMainShip);
                     rotationValue = Mathf.Min(rotationValue, maxRotationMainShip);
 
+                    if (rotationValue > -0.5 && rotationValue < 0.5f)
+                    {
+                        rotationValue = 0.0f;
+                    }
+
                     transform.rotation = Quaternion.Euler(new Vector3(0, rotationValue, -(rotationValue /4.0f)));
 
                     Vector3 newFwd = transform.rotation * Vector3.forward;
@@ -91,10 +110,30 @@ public class PlayerController : NetworkBehaviour {
 
                     transform.position = transform.position + new Vector3(newFwd.x * turnSpeed, 0.0f, 0.0f);
 
+                    gunControl = GameObject.FindGameObjectWithTag("Bigship").GetComponent<GunController>();
+                    if (pressMainShoot)
+                    {
+                        gunControl.FireMainGuns();
+                    }
+                    if (pressSecondShoot)
+                    {
+                        gunControl.FireSecondGuns();
+                    }
+
                     break;
                 // turret
                 case 2:
                     transform.rotation = transform.rotation * Quaternion.AngleAxis(horizontAxis * rotationSpeed, new Vector3(0, 1, 0));
+                    GameObject turretObj = GameObject.FindGameObjectWithTag("Turret");
+                    gunControl = turretObj.GetComponent<GunController>();
+                    if (pressMainShoot)
+                    {
+                        gunControl.FireMainGuns();
+                    }
+                    if (pressSecondShoot)
+                    {
+                        gunControl.FireSecondGuns();
+                    }
                     break;
 
                 //Chaser
@@ -119,22 +158,23 @@ public class PlayerController : NetworkBehaviour {
                     newFwd2.Normalize();
 
                     transform.position = transform.position + new Vector3(newFwd2.x * turnSpeed, 0.0f, 0.0f);
-
+                    gunControl = GameObject.FindGameObjectWithTag("Chaser").GetComponent<GunController>();
+                    if (pressMainShoot)
+                    {
+                        gunControl.FireMainGuns();
+                    }
+                    if (pressSecondShoot)
+                    {
+                        gunControl.FireSecondGuns();
+                    }
                     break;
                 default:
                     break;
             }
 
-            //GunController gunControl = GetComponent<GunController>();
+            
 
-            //if (pressMainShoot)
-            //{
-            //    gunControl.FireMainGuns();
-            //}
-            //if (pressSecondShoot)
-            //{
-            //    gunControl.FireSecondGuns();
-            //}
+
 
         }
 	}

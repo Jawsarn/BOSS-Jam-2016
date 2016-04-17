@@ -3,9 +3,10 @@ using System.Collections;
 using UnityEngine.Networking;
 
 public class PowerUpSpawner : MonoBehaviour {
+    public GameObject[] astroids;
+    int numPref;
 
     bool started = false;
-    public GameObject PowerUpPrefab;
     GameObject bigShip;
     public float spawnRate = 1.0f;
     float spawnTimer = 0.0f;
@@ -18,6 +19,7 @@ public class PowerUpSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         endXhalfDistance = GameStateManager.endXhalfDistance;
+        numPref = astroids.GetLength(0);
     }
 	
 	// Update is called once per frame
@@ -41,7 +43,9 @@ public class PowerUpSpawner : MonoBehaviour {
             var force = Random.Range(minForce, maxForce);
 
             var shipZPos = bigShip.transform.position.z;
-            GameObject newPowerUp = (GameObject)Instantiate(PowerUpPrefab, new Vector3(xPosStart, 0.0f, shipZPos + spawnDistanceZFromShip), Quaternion.Euler(Vector3.zero));
+
+            var prefIndx = Random.Range(0, numPref);
+            GameObject newPowerUp = (GameObject)Instantiate(astroids[prefIndx], new Vector3(xPosStart, 0.0f, shipZPos + spawnDistanceZFromShip), Quaternion.Euler(Vector3.zero));
 
             Vector3 direction = new Vector3(xPosEnd, 0, shipZPos) - new Vector3(xPosStart, 0, shipZPos + spawnDistanceZFromShip);
             direction.Normalize();

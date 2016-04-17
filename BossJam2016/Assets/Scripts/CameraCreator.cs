@@ -13,10 +13,10 @@ public class CameraCreator : NetworkBehaviour {
     private float mainShipZRotation = 0.0f;
 
     //turret
-    private float turretYOffset = 2.0f;
-    private float turretZOffset = -3.0f;
+    private float turretYOffset = 5.0f;
+    private float turretZOffset = -4.0f;
 
-    private float turretXRotation = 3.0f;
+    private float turretXRotation = 10.0f;
     private float turretYRotation = 180.0f;
     private float turretZRotation = 0.0f;
 

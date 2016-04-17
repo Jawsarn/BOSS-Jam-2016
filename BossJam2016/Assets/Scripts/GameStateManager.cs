@@ -66,7 +66,7 @@ public class GameStateManager : MonoBehaviour {
         PowerUpSpawner powerSpawner = powerUpSpawner.GetComponent<PowerUpSpawner>();
         powerSpawner.Startup();
 
-        EnemySpawner enemies = enemySpawner.GetComponent<EnemySpawner>();
-        enemies.Startup();
+        //EnemySpawner enemies = enemySpawner.GetComponent<EnemySpawner>();
+        //enemies.Startup();
     }
 }

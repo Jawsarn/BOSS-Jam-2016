@@ -17,6 +17,9 @@ public class GunController : NetworkBehaviour {
     int numberOfGunMainSlots = 0;
     int numberOfGunSecondSlots = 0;
 
+
+    int mainGunLevel = 1;
+
     // Use this for initialization
     void Start () {
         foreach (Transform item in transform)
@@ -68,13 +71,15 @@ public class GunController : NetworkBehaviour {
 
     void CreateProjectileMain()
     {
-        int classType = GetComponent<PlayerClass>().classType;
+        int classType = transform.parent.GetComponent<PlayerClass>().classType;
 
         for (int i = 0; i < numberOfGunMainSlots; i++)
         {
+
+
             //if whatever player 
             GameObject obj = (GameObject)Instantiate(projectTileTypes[mainGuns[i].GetComponent<GunType>().CurrentGunType], mainGuns[i].transform.position, mainGuns[i].transform.rotation);
-
+            obj.transform.tag = "playerBullet";
             // Add force
             switch (classType)
             {
@@ -94,6 +99,8 @@ public class GunController : NetworkBehaviour {
                     break;
             }
 
+            obj.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 500.0f);
+
             NetworkServer.Spawn(obj);
 
             Debug.Log("SHOOTIN!");
@@ -102,7 +109,7 @@ public class GunController : NetworkBehaviour {
 
     void CreateProjectileSecond()
     {
-        int classType = GetComponent<PlayerClass>().classType;
+        int classType = transform.parent.GetComponent<PlayerClass>().classType;
 
         for (int i = 0; i < numberOfGunSecondSlots; i++)
         {
@@ -128,7 +135,17 @@ public class GunController : NetworkBehaviour {
                     break;
             }
 
+            obj.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 500.0f);
+
             NetworkServer.Spawn(obj);
         }
+    }
+    
+    public void UpgradeGuns()
+    {
+        mainGunLevel++;
+        mainGunsCooldown -= 0.1f;
+        secondGunsCooldown -= 0.1f;
+
     }
 }
